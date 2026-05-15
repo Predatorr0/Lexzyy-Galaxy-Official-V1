@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+:root {
+    --bg-dark: #050508;
+    --accent-blue: #00d2ff;
+    --accent-purple: #9d50bb;
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+#cursor {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    width: 400vw;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -2px;
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 24px;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.progress-container {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+}
+
+.social-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--accent-blue);
+}
